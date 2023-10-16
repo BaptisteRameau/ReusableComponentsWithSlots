@@ -1,8 +1,5 @@
 <template>
-    <slot name="test" :test2="message" :test3="message2">
-    <p>{{ message }}</p>
-    <p>{{ message2 }}</p>
-    </slot>
+    <slot name="scoped" :message="message" :message2="message2"/>
 </template>
 
 <script setup>

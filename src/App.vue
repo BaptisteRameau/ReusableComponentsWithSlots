@@ -7,8 +7,8 @@
       </template>
     </AppUserList>
       <AppScoped :message2="message2">
-        <template #test="{test2, test3}">
-          Bonjour {{ test2 }} {{ test3 }}
+        <template #scoped="{message, message2}">
+          Bonjour {{ message }} {{ message2 }}
         </template>
       </AppScoped>
     <template #footer>Footer</template>
