@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <AppLayout>
+    <template #header>Header</template>
+    <AppUserList>
+      <template #secondrow="{item: user, remove}">
+        <AppButton @click="remove(user)">remove</AppButton>
+      </template>
+    </AppUserList>
+      <AppScoped :message2="message2">
+        <template #test="{test2, test3}">
+          Bonjour {{ test2 }} {{ test3 }}
+        </template>
+      </AppScoped>
+    <template #footer>Footer</template>
+  </AppLayout>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import AppButton from "@/components/AppButton";
+import AppUserList from "@/components/AppUserList";
+import AppLayout from "@/components/AppLayout";
+import AppScoped from "@/components/AppScoped";
+import { ref } from "vue";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+const message2 = ref('Hello le père Doni !')
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  margin: 0;
+  padding: 0;
 }
 </style>
